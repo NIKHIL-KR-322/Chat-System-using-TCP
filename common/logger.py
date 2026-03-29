@@ -1,6 +1,8 @@
-from loguru import logger
-import sys
+import logging
 
-logger.remove()
-logger.add(sys.stdout, colorize=True, format="<green>{time:HH:mm:ss}</green> | <level>{level}</level> | {message}")
-logger.add("logs/server.log", rotation="1 MB")
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(levelname)s] %(message)s'
+)
+
+logger = logging.getLogger("chat_app")
